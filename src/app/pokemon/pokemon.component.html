@@ -1,0 +1,62 @@
+<h2>Learn about pokemons: {{ count }} found!</h2>
+
+<div class="row">
+  <div class="col-md-6">
+
+    <table id="tablePokemons" class="table table-bordered table-hover table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="listPokemons?.length; else emptyListPokemon">
+        <tr *ngFor="let item of listPokemons">
+          <td class="text-capitalize">{{ item.name }}</td>
+          <td>
+            <button class="btn btn-dark btn-sm" (click)="details(item.url)">
+              Details
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <nav aria-label="Pages">
+      <ul class="pagination">
+        <li *ngIf="previousPage?.length" class="page-item">
+          <a class="page-link" (click)="all(previousPage)">Previous Page</a>
+        </li>
+        <li *ngIf="nextPage?.length" class="page-item">
+          <a class="page-link" (click)="all(nextPage)">Next Page</a>
+        </li>
+      </ul>
+    </nav>
+
+    <ng-template #emptyListPokemon>
+      <tbody>
+        <tr>
+          <td colspan="2">No pokemon found!</td>
+        </tr>
+      </tbody>
+    </ng-template>
+  </div>
+
+  <div class="col-md-6">
+    <div *ngIf="selectedPokemon?.name?.length;else emptyPokemon" class="card" style="width:300px">
+      <h5 class="card-header text-capitalize">{{ selectedPokemon.name }}</h5>
+
+      <img src="{{ selectedPokemon.img }}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <p class="card-text">
+          Base experience: {{ selectedPokemon.base_experience }}
+        </p>
+        <p class="card-text">Height: {{ selectedPokemon.height }}</p>
+        <p class="card-text">Weight: {{ selectedPokemon.weight }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #emptyPokemon>
+</ng-template>

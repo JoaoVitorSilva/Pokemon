@@ -10,7 +10,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
-
 @NgModule({
   declarations: [AppComponent],
   imports: [

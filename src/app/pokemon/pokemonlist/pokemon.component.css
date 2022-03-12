@@ -49,10 +49,7 @@ button:disabled{
   height: 50px;
 }
 
-.table-types span{
-  height: 20px;
-  padding: 5px;
-  border-radius: 5px;
+.table-types a{
   margin-left:5px;
 }
 

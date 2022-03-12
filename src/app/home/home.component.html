@@ -1,6 +1,80 @@
+<h2 class="title text-center">Welcome to PokeInfo!</h2>
 
+<mat-stepper orientation="vertical">
+  <mat-step>
+    <ng-template matStepLabel>Choose your favorites pokemons!</ng-template>
+    <ng-template matStepContent>
+      <p>
+        Go to pokemons content and choose your favorites pokemons
+        <mat-icon class="text-success" *ngIf="existPokemon; else emptyFav"
+          >done_all</mat-icon
+        >
+      </p>
+      <p>
+        <a class="page-link" mat-raised-button [routerLink]="['/pokemon']"
+          >View Pokemons</a
+        >
+      </p>
+      <button mat-icon-button mat-button matStepperNext aria-label="Next" class="page-link">
+        <mat-icon>skip_next</mat-icon>
+      </button>
+    </ng-template>
+  </mat-step>
 
-  <h2 class="text-center text-blue">Welcome to PokeInfo!</h2>
+  <mat-step>
+    <ng-template matStepLabel>Choose your favorites types!</ng-template>
+    <ng-template matStepContent>
+      <p>
+        Go to pokemon types content and choose your favorites types
+        <mat-icon class="text-success" *ngIf="existTypes; else emptyFav"
+          >done_all</mat-icon
+        >
+      </p>
+      <p>
+        <a class="page-link" mat-raised-button [routerLink]="['/types']"
+          >View Types</a
+        >
+      </p>
+      <button
+        mat-icon-button
+        mat-button
+        matStepperPrevious
+        aria-label="Previous"
+        class="page-link"
+      >
+        <mat-icon>skip_previous</mat-icon>
+      </button>
+      <button mat-icon-button mat-button matStepperNext aria-label="Next" class="page-link">
+        <mat-icon>skip_next</mat-icon>
+      </button>
+    </ng-template>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Learn more!</ng-template>
+    <p *ngIf="existPokemon && existTypes, else stepsImcomplete">Congratulations! You finished the first step of training. Go to favorites page to review your choices.</p>
 
+    <p *ngIf="existPokemon && existTypes">
+      <a class="page-link" mat-raised-button [routerLink]="['/favorites']"
+        >View Favorites</a
+      >
+    </p>
 
+    <button
+        mat-icon-button
+        mat-button
+        matStepperPrevious
+        aria-label="Previous"
+        class="page-link"
+      >
+        <mat-icon>skip_previous</mat-icon>
+      </button>
+  </mat-step>
+</mat-stepper>
 
+<ng-template #emptyFav>
+  <mat-icon class="text-warning">schedule</mat-icon>
+</ng-template>
+
+<ng-template #stepsImcomplete>
+  <p>You need complete all steps</p>
+</ng-template>

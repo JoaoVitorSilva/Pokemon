@@ -30,6 +30,7 @@
   width: 100%;
 
 }
+
 .card-type span{
   border:black 1px solid;
   height: 23px;
@@ -61,11 +62,18 @@
 .card-type .fire{  background: #ff0000;color:white}
 .card-type .steel{  background: #4b4b4b;color:white}
 
-
+.mat-card-title:hover{
+  cursor: pointer;
+}
 
 mat-card-title{
   text-transform: uppercase;
 }
+
+.mat-card-header{
+  padding-bottom:5px !important;
+}
+
 
 .card img{
   background: rgb(255, 255, 255,0.9)

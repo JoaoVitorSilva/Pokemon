@@ -19,6 +19,7 @@ h2.title{
   padding: 30px 0px 0px 30px;
   color: #3f51b5;
   font-size: 30px;
+  text-transform: capitalize;
 }
 
 .container.container-main {
@@ -66,8 +67,50 @@ h2.title{
   color: rgb(122, 122, 122);
 }
 
+.darkMode .mat-expansion-panel-body{
+  background-color: rgb(37, 37, 37)!important;
+}
 
+.darkMode .mat-button-base{
+  color: white!important;
+}
 
+.mat-cell,.mat-button-base{
+  text-transform: capitalize;
+}
+
+.mat-card-header-text{
+  margin-left: 0px!important;
+}
+
+mat-stepper{
+  background-color: none!important;
+}
+
+.mat-step-label-active{
+  font-size:20px!important;
+}
+
+.darkMode .mat-step-label-active{
+color: white!important;
+}
+
+.mat-vertical-content{
+  font-size: 15px;
+  margin-top:15px !important;
+}
+
+.mat-stepper-horizontal, .mat-stepper-vertical{
+  background-color: transparent!important;
+}
+
+.darkMode .mat-step{
+  color: white!important;
+}
+
+.mat-vertical-content .page-link{
+  margin-left: 10px
+}
 
 
 

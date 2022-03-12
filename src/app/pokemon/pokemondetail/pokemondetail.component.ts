@@ -1,4 +1,4 @@
-import { FavoritesService } from './../favorites.service';
+import { FavoritesService } from '../../favorites/favorites.service';
 import { PokemonService } from './../pokemon.service';
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -9,12 +9,14 @@ import { Pokemon } from 'src/app/models/pokemon';
   templateUrl: './pokemondetail.component.html',
   styleUrls: ['./pokemondetail.component.css'],
 })
+
 export class PokemonDetailComponent implements OnInit, OnChanges {
   @Input() pokemon?: any;
 
   pokemonName: string = '';
   panelOpenState = false;
   isFavorite = false;
+  isDefaultPokemon = false;
 
   constructor(
     private servicePokemon: PokemonService,
@@ -23,27 +25,35 @@ export class PokemonDetailComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
+
     this.pokemonName = this.route.snapshot.paramMap.get('name') ?? '';
 
-    if (this.pokemonName) {
-      this.servicePokemon
-        .details(this.pokemonName)
-        .subscribe((result) => (this.pokemon = result));
+    if (this.pokemonName && this.pokemon == null) {
+      this.servicePokemon.details(this.pokemonName).subscribe((result) => {
+        this.pokemon = result;
+        this.isFavorite = this.serviceFavorite.isFavorite(this.pokemon?.id);
+      });
     }
 
     if (!this.pokemon && !this.pokemonName) this.createDefault();
   }
 
   ngOnChanges(changes: any) {
-    console.log('change');
-    this.isFavorite = this.serviceFavorite.isFavorite(this.pokemon?.id);
+    if (!!this.pokemon) {
+      this.isDefaultPokemon = false;
+      this.isFavorite = this.serviceFavorite.isFavorite(this.pokemon?.id);
+    } else {
+      this.createDefault();
+    }
   }
 
   favorite() {
-    this.isFavorite = this.serviceFavorite.favorite(this.pokemon?.id);
+    if(!this.isDefaultPokemon)
+      this.isFavorite = this.serviceFavorite.favorite(this.pokemon?.id);
   }
 
   createDefault() {
+    this.isDefaultPokemon = true;
     let poke: Pokemon = {
       name: '???',
       types: [{ type: { name: 'legend' } }],
@@ -64,7 +74,11 @@ export class PokemonDetailComponent implements OnInit, OnChanges {
       id: '1460',
       height: 250,
       sprites: {
-        other: { 'official-artwork': { front_default: '/assets/images/pokemon-default.png' } },
+        other: {
+          'official-artwork': {
+            front_default: '/assets/images/pokemon-default.png',
+          },
+        },
       },
     };
 

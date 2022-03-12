@@ -1,4 +1,3 @@
-import { PokemonRoutingModule } from './pokemon-routing.module';
 import { environment } from './../../environments/environment';
 import { Pokemon } from '../models/pokemon';
 import { Injectable } from '@angular/core';
@@ -10,7 +9,7 @@ import { PokemonApiModel } from '../models/pokemonapimodel';
   providedIn: 'root',
 })
 export class PokemonService {
-  private url = environment.URL_API;
+  private url = environment.URL_API + 'pokemon/';
 
   constructor(private httpClient: HttpClient) {}
 

@@ -10,31 +10,36 @@
 
     <span class="mat-toolbar-space"></span>
 
-
     <mat-slide-toggle class="mat-item-padding" (change)="changeMode()">
-
-      <span *ngIf="!cssDarkMode, else DarkMode">Ligth Mode</span>
+      <span *ngIf="!cssDarkMode; else DarkMode">Ligth Mode</span>
     </mat-slide-toggle>
 
     <mat-icon class="mat-item-padding">settings</mat-icon>
-
   </mat-toolbar>
 </header>
-
 
 <mat-drawer-container class="body-container" [class.darkMode]="cssDarkMode">
   <mat-drawer #drawer mode="over">
     <mat-list>
       <mat-list-item
-        ><a [routerLink]="['pokemon']" routerLinkActive="ativo" class="nav-link"
+        ><a [routerLink]="['pokemon']" routerLinkActive="ativo" class="nav-link" (click)="drawer.toggle()"
           >Pokemons</a
         ></mat-list-item
       >
       <mat-divider></mat-divider>
 
-      <mat-list-item> <a href="#" routerLinkActive="ativo" class="nav-link"
-        >Regions</a
-      ></mat-list-item>
+      <mat-list-item>
+        <a [routerLink]="['types']" routerLinkActive="ativo" class="nav-link" (click)="drawer.toggle()"
+          >Types</a
+        ></mat-list-item
+      >
+      <mat-divider></mat-divider>
+
+      <mat-list-item>
+        <a [routerLink]="['favorites']" routerLinkActive="ativo" class="nav-link" (click)="drawer.toggle()"
+          >Favorites</a
+        ></mat-list-item
+      >
     </mat-list>
   </mat-drawer>
 

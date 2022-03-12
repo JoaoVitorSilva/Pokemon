@@ -1,0 +1,13 @@
+<h2 class="title">Types</h2>
+
+<mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let item of typesPokemon">
+    <a
+      mat-raised-button
+      [class]="item.name"
+      [routerLink]="['/types', item.name]"
+    >
+      {{ item.name }}
+    </a>
+  </mat-list-item>
+</mat-list>

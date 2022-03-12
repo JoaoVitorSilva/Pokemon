@@ -1,0 +1,118 @@
+<h2 class="title text-center">{{ typePokemon?.name }}</h2>
+
+<div class="row">
+  <div class="col-md-12">
+    <mat-accordion>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Pokemons </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="row mt-5">
+          <div class="col-md-3" *ngFor="let poke of typePokemon?.pokemon">
+            <app-pokemondetail
+              *ngIf="poke.detalhes"
+              class="card-list"
+              [pokemon]="poke?.detalhes"
+            ></app-pokemondetail>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button
+              mat-raised-button
+              class="btn page-link"
+              (click)="loadMorePokemons()"
+            >
+              More Pokemons
+            </button>
+          </div>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Moves </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="pokemon-moves">
+          <button
+            mat-stroked-button
+            disabled
+            *ngFor="let moves of typePokemon?.moves"
+          >
+            {{ moves.name }}
+          </button>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Double Damage From </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="pokemon-moves" *ngIf="typePokemon?.damage_relations?.double_damage_from.length ; else empty">
+          <button
+            mat-stroked-button
+            disabled
+            *ngFor="let damage of typePokemon?.damage_relations?.double_damage_from"
+          >
+            {{ damage.name }}
+          </button>
+        </div>
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Double Damage To </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="pokemon-moves" *ngIf="typePokemon?.damage_relations?.double_damage_to.length ; else empty">
+          <button
+            mat-stroked-button
+            disabled
+            *ngFor="let damage of typePokemon?.damage_relations?.double_damage_to"
+          >
+            {{ damage.name }}
+          </button>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Half Damage From </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="pokemon-moves" *ngIf="typePokemon?.damage_relations?.half_damage_from.length ; else empty">
+          <button
+            mat-stroked-button
+            disabled
+            *ngFor="let damage of typePokemon?.damage_relations?.half_damage_from"
+          >
+            {{ damage.name }}
+          </button>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Half Damage To </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <div class="pokemon-moves" *ngIf="typePokemon?.damage_relations?.half_damage_to.length ; else empty">
+          <button
+            mat-stroked-button
+            disabled
+            *ngFor="let damage of typePokemon?.damage_relations?.half_damage_to"
+          >
+            {{ damage.name }}
+          </button>
+        </div>
+      </mat-expansion-panel>
+
+
+    </mat-accordion>
+  </div>
+</div>
+
+<ng-template #empty>
+  <p class="text-center mt-3">
+  Don't exist
+  </p>
+</ng-template>

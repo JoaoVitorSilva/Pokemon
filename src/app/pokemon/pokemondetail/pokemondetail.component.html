@@ -1,11 +1,18 @@
 <div class="d-flex justify-content-center">
+
   <mat-card class="card {{pokemon?.types[0]?.type.name}}">
     <mat-card-header>
-      <mat-card-title>{{ pokemon?.name }}</mat-card-title>
+      <mat-card-title [routerLink]="!isDefaultPokemon ? ['/pokemon',pokemon?.name] : []">{{ pokemon?.name }}</mat-card-title>
       <div class="card-type d-flex justify-content-end">
-        <span *ngFor="let types of pokemon?.types" [class]="types.type.name">
-            {{types.type.name}}
-        </span>
+
+        <a mat-raised-button
+        *ngFor="let types of pokemon?.types" [class]="types.type.name"
+            [routerLink]="!isDefaultPokemon ? ['/types',types.type.name] : []"
+          >
+            {{ types.type.name }}
+          </a>
+
+
       </div>
     </mat-card-header>
     <img
@@ -22,7 +29,7 @@
           </mat-expansion-panel-header>
           <div class="row">
             <div
-              class="col-md-6 pokemon-stats"
+              class="col-md-6 pokemon-stats mt-2"
               *ngFor="let stats of pokemon?.stats"
             >
               <strong>{{ stats.stat.name }}</strong> : {{ stats.base_stat }}
@@ -37,7 +44,7 @@
           <div class="row">
             <div
               class="col-md-6 pokemon-moves"
-              *ngFor="let move of pokemon?.moves"
+              *ngFor="let move of pokemon?.moves?.slice(0,6); "
             >
               <button mat-stroked-button disabled>{{ move.move.name }}</button>
             </div>
@@ -56,9 +63,9 @@
           <mat-icon *ngIf="!isFavorite else tpmFavorite">star_border</mat-icon>
         </button>
 
-        <button mat-icon-button matTooltip="Delete Pokemon">
-          <mat-icon>delete</mat-icon>
-        </button>
+        <a mat-icon-button matTooltip="View Pokemon" [routerLink]="!isDefaultPokemon ? ['/pokemon',pokemon?.name] : []">
+          <mat-icon>more_horiz</mat-icon>
+        </a>
 
         <button mat-icon-button matTooltip="Edit Pokemon">
           <mat-icon>edit</mat-icon>

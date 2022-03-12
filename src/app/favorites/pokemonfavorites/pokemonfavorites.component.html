@@ -1,0 +1,18 @@
+<h2 class="title">Pokemons</h2>
+
+<div class="row" *ngIf="pokemonList.length > 0 else emptyFavotires">
+  <div class="col-md-4 mb-3" *ngFor="let poke of pokemonList">
+    <div class="d-flex justify-content-center">
+      <app-pokemondetail [pokemon]="poke"></app-pokemondetail>
+    </div>
+  </div>
+</div>
+
+<ng-template #emptyFavotires>
+  <div class="col-md-12 emptyMessage">
+    Don't exist favorites pokemons!
+  </div>
+
+</ng-template>
+
+

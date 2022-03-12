@@ -1,0 +1,25 @@
+.mat-expansion-panel-header{
+  background-color: #3f51b5 !important;
+
+}
+.mat-expansion-panel-header-title{
+  color:white !important;
+}
+
+.pokemon-moves button {
+  margin:5px;
+  color:#3f51b5;
+}
+
+.mat-expansion-panel{
+  color:#3f51b5;
+}
+
+.mat-expansion-panel-body {
+  background: rgb(255, 255, 255,0.9)
+}
+
+.card-list{
+  display: inline-block;
+  padding-bottom: 10px;
+}

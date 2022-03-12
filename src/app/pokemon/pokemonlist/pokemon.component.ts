@@ -1,4 +1,4 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonApiModel } from 'src/app/models/pokemonapimodel';
@@ -9,11 +9,9 @@ import { PokemonService } from '../pokemon.service';
   templateUrl: './pokemon.component.html',
   styleUrls: ['./pokemon.component.css'],
 })
-
-
 export class PokemonComponent implements OnInit {
-
-   inputSearch! : string;
+  inputSearch!: string;
+  errorMessage:string = '';
 
   pokemonResult?: PokemonApiModel;
   datasouce: any[] = [];
@@ -27,7 +25,6 @@ export class PokemonComponent implements OnInit {
     'types',
     'actions',
   ];
-
 
   constructor(
     private servicePokemon: PokemonService,
@@ -66,16 +63,26 @@ export class PokemonComponent implements OnInit {
   }
 
   pesquisar() {
-    this.servicePokemon
-      .all('', 99999)
-      .subscribe((result: PokemonApiModel) => {
 
-        let arr:Pokemon[] = result.results;
+    this.errorMessage = '';
 
-        this.datasouce = arr.filter((value:Pokemon) => {
-          return value.name.includes(this.inputSearch);
-        });
-        this.getPokemonDetails(this.datasouce);
+    if (this.inputSearch.length < 4 && this.inputSearch.length != 0) {
+      this.errorMessage = 'Minimun of 3 caracters';
+      return;
+    }
+
+    if(this.inputSearch.length == 0){
+      this.listPokemon();
+      return;
+    }
+
+    this.servicePokemon.all('', 99999).subscribe((result: PokemonApiModel) => {
+      let arr: Pokemon[] = result.results;
+
+      this.datasouce = arr.filter((value: Pokemon) => {
+        return value.name.includes(this.inputSearch);
       });
+      this.getPokemonDetails(this.datasouce);
+    });
   }
 }

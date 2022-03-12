@@ -1,0 +1,120 @@
+<h2 class="title">Pokemons - We {{ pokemonResult?.count }} pokemons!</h2>
+
+<div class="row">
+  <div class="col-md-9">
+    <div class="d-flex justify-content-center">
+
+      <div class="input-group mb-4">
+        <input type="text" class="form-control" placeholder="Type a name for search..." aria-label="Search" name="inputSearch" [(ngModel)]="inputSearch">
+        <button class="btn page-link" type="button" (click)="pesquisar()">Search</button>
+        <button class="btn page-link" type="button" (click)="listPokemon(pokemonResult?.previous)" [attr.disabled]="!pokemonResult?.previous ? 'disabled' : null">Previous Page</button>
+        <button class="btn page-link" type="button" (click)="listPokemon(pokemonResult?.next)" [attr.disabled]="!pokemonResult?.next ? 'disabled' : null">Next Page</button>
+      </div>
+
+
+    </div>
+
+    <table
+      mat-table
+      [dataSource]="datasouce"
+      class="mat-elevation-z8 tablePokemon"
+    >
+      <!-- Order Column -->
+      <ng-container matColumnDef="order">
+        <th mat-header-cell *matHeaderCellDef>Order</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.detalhes?.order }}
+        </td>
+      </ng-container>
+
+      <!-- Img Column -->
+      <ng-container matColumnDef="img">
+        <th mat-header-cell *matHeaderCellDef>Image</th>
+        <td mat-cell *matCellDef="let element">
+          <img
+            class="img-table"
+            [src]="
+              element.detalhes?.sprites?.other['official-artwork'].front_default
+            "
+          />
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <!-- Height Column -->
+      <ng-container matColumnDef="height">
+        <th mat-header-cell *matHeaderCellDef>Height</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.detalhes?.height }}
+        </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef>Weight</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.detalhes?.weight }}
+        </td>
+      </ng-container>
+
+      <!-- Types Column -->
+      <ng-container matColumnDef="types">
+        <th mat-header-cell *matHeaderCellDef>Types</th>
+        <td mat-cell *matCellDef="let element" class="table-types">
+          <span
+            *ngFor="let item of element.detalhes?.types"
+            [class]="item.type.name"
+          >
+            {{ item.type.name }}
+          </span>
+        </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            aria-label="View"
+            (click)="redirect(element.name)"
+            matTooltip="View Pokemon"
+          >
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+
+          <button
+            mat-icon-button
+            aria-label="View"
+            (click)="showPokemonDetails(element.detalhes)"
+            matTooltip="See Card"
+          >
+            <mat-icon>sd_card</mat-icon>
+          </button>
+
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <ng-template #emptyListPokemon>
+      <tbody>
+        <tr>
+          <td colspan="2">No pokemon found!</td>
+        </tr>
+      </tbody>
+    </ng-template>
+  </div>
+
+  <div class="col-md-3">
+    <app-pokemondetail  [pokemon]="selectedPokemon"></app-pokemondetail>
+</div>
+
+

@@ -1,32 +1,50 @@
 <header>
-  <div class="px-3 py-2 bg-dark text-white">
-    <div class="container">
-      <div
-        class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-      >
-        <a
-          href="/"
-          class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
-        >
-          <img src="assets/images/logo.png" alt="logo" height="40" />
-        </a>
+  <mat-toolbar class="mat-toolbar mat-primary mat-toolbar-single-row">
+    <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+    <a
+      [routerLink]="['']"
+      class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-decoration-none"
+    >
+      <img src="assets/images/logo.png" alt="logo" height="40" />
+    </a>
 
-        <ul
-          class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small"
-        >
-          <li>
-            <a href="/home" class="nav-link text-secondary">Home</a>
-          </li>
-          <li>
-            <a href="/pokemon" class="nav-link text-white">Pokemons</a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white">Regions</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    <span class="mat-toolbar-space"></span>
+
+
+    <mat-slide-toggle class="mat-item-padding" (change)="changeMode()">
+
+      <span *ngIf="!cssDarkMode, else DarkMode">Ligth Mode</span>
+    </mat-slide-toggle>
+
+    <mat-icon class="mat-item-padding">settings</mat-icon>
+
+  </mat-toolbar>
 </header>
 
-<router-outlet></router-outlet>
+
+<mat-drawer-container class="body-container" [class.darkMode]="cssDarkMode">
+  <mat-drawer #drawer mode="over">
+    <mat-list>
+      <mat-list-item
+        ><a [routerLink]="['pokemon']" routerLinkActive="ativo" class="nav-link"
+          >Pokemons</a
+        ></mat-list-item
+      >
+      <mat-divider></mat-divider>
+
+      <mat-list-item> <a href="#" routerLinkActive="ativo" class="nav-link"
+        >Regions</a
+      ></mat-list-item>
+    </mat-list>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <div class="container container-main">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<ng-template #DarkMode>
+  <span>Dark Mode</span>
+</ng-template>

@@ -1,0 +1,98 @@
+.card {
+  max-width: 400px;
+  color: #3f51b5;
+}
+
+.card.normal{  background: #cfcebc}
+.card.fighting{  background: #addf25}
+.card.flying{  background: #104696;color:white}
+.card.poison{  background: #0b7a0b;color:white}
+.card.ground{  background: #0fe60f}
+.card.rock{  background: #4e4040;color:white}
+.card.bug{  background: #8fe78f}
+.card.ghost{  background: #a769ee}
+.card.fire{  background: #fafffa}
+.card.water{  background: #a1dae4}
+.card.grass{  background: #a4e7a4}
+.card.electric{  background: #ffef13}
+.card.psychic{  background: #eb2aaa;color:white}
+.card.ice{  background: #3ec1d8}
+.card.dragon{  background: #d62912;color:white}
+.card.dark{  background: #777777}
+.card.fairy{  background: #e073ce}
+.card.unknown{  background: #f79c85}
+.card.shadow{  background: #3d2b68}
+.card.fire{  background: #ff0000;color:white}
+.card.steel{  background: #4b4b4b;color:white}
+.card.legend{background: #fdcb00;color:#3f51b5}
+
+.card-type{
+  width: 100%;
+
+}
+.card-type span{
+  border:black 1px solid;
+  height: 23px;
+  text-align: center;
+  border-radius: 5px;
+  margin-left:5px;
+  width: 50px;
+}
+
+.card-type .normal{  background: #cfcebc}
+.card-type .fighting{  background: #addf25}
+.card-type .flying{  background: #104696;color:white}
+.card-type .poison{  background: #0b7a0b;color:white}
+.card-type .ground{  background: #0fe60f}
+.card-type .rock{  background: #4e4040;color:white}
+.card-type .bug{  background: #8fe78f}
+.card-type .ghost{  background: #a769ee}
+.card-type .fire{  background: #fafffa}
+.card-type .water{  background: #a1dae4}
+.card-type .grass{  background: #a4e7a4}
+.card-type .electric{  background: #ffef13}
+.card-type .psychic{  background: #eb2aaa;color:white}
+.card-type .ice{  background: #3ec1d8}
+.card-type .dragon{  background: #d62912;color:white}
+.card-type .dark{  background: #777777}
+.card-type .fairy{  background: #e073ce}
+.card-type .unknown{  background: #f79c85}
+.card-type .shadow{  background: #3d2b68}
+.card-type .fire{  background: #ff0000;color:white}
+.card-type .steel{  background: #4b4b4b;color:white}
+
+
+
+mat-card-title{
+  text-transform: uppercase;
+}
+
+.card img{
+  background: rgb(255, 255, 255,0.9)
+}
+.pokemon-stats strong{
+  text-transform: capitalize;
+}
+
+.mat-expansion-panel-header{
+  background-color: #3f51b5 !important;
+
+}
+.mat-expansion-panel-header-title{
+  color:white !important;
+}
+
+.pokemon-moves button {
+  margin:5px;
+  color:#3f51b5;
+}
+
+.mat-expansion-panel{
+  color:#3f51b5;
+}
+
+.mat-expansion-panel-body {
+  background: rgb(255, 255, 255,0.9)
+}
+
+

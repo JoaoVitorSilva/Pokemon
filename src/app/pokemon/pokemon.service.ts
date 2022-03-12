@@ -1,23 +1,29 @@
+import { PokemonRoutingModule } from './pokemon-routing.module';
+import { environment } from './../../environments/environment';
+import { Pokemon } from '../models/pokemon';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { LocationStrategy } from '@angular/common';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { PokemonApiModel } from '../models/pokemonapimodel';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PokemonService {
+  private url = environment.URL_API;
 
-  private url = 'https://pokeapi.co/api/v2/pokemon/';
   constructor(private httpClient: HttpClient) {}
 
-  all(pageurl?: string): Observable<any>{
+  all(pageurl?: string, count: number = 20): Observable<PokemonApiModel> {
 
-    this.url = pageurl != null ? pageurl : this.url;
-    return this.httpClient.get(this.url);
+    const api = pageurl ? pageurl : this.url;
+    let params = new HttpParams().append('limit', count);
+    return this.httpClient.get<PokemonApiModel>(api, { params: params });
   }
 
-  details(pageurl: string): Observable<any>{
-    return this.httpClient.get(pageurl);
+  details(name: string): Observable<Pokemon> {
+    if (!name) return throwError('Pokemon não informado');
+
+    return this.httpClient.get<Pokemon>(`${this.url}${name}`);
   }
 }

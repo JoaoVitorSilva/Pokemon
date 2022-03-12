@@ -1,1 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgba(8, 34, 78, 0.9) !important;
+
+}
+
+
+
+.bg-blue {
+  background-color: rgba(8, 34, 78, 0.9) !important;
+}
+
+h2.title{
+  padding: 30px 0px 0px 30px;
+  color: #3f51b5;
+  font-size: 30px;
+}
+
+.container.container-main {
+  /*
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 5px 0px #a6a1a1;
+  box-shadow: 5px 5px 5px 0px #a6a1a1;
+  */
+  padding: 10px;
+  margin-top: 20px;
+
+}
+
+.darkMode h2{
+  color:white !important;
+}
+
+.darkMode .mat-table{
+  background-color: rgb(37, 37, 37) !important;
+  border: white;
+}
+
+.darkMode .mat-table{
+  box-shadow: 0px 5px 5px -3px white,0px 8px 10px 1px rgba(255,255, 255, 0.14),0px 3px 14px 2px rgba(255, 255, 255, 0.12)
+}
+.darkMode mat-row, .darkMode mat-header-row, .darkMode mat-footer-row,  .darkMode th.mat-header-cell,  .darkMode td.mat-cell, .darkMode td.mat-footer-cell{
+  border-color: white!important;
+}
+
+.darkMode .mat-table .mat-header-cell,.darkMode .mat-table .mat-cell{
+  color: white !important;
+}
+
+.darkMode .page-link{
+  background-color: rgb(37, 37, 37) !important;
+  color: white!important;
+}
+
+.darkMode .form-control{
+  background-color: #252525!important;
+  color:white !important;
+}
+.darkMode .form-control::placeholder{
+  color: rgb(122, 122, 122);
+}
+
+
+
+
+
+
+
+
+
+

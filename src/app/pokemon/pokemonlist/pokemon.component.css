@@ -1,0 +1,82 @@
+.card-wrap{
+  padding: 1rem;
+  position: relative;
+  background: linear-gradient(to top, #ffe565,#ffd300);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.card{
+  border: none!important;
+
+}
+.card-img-top{
+background-color: #fafffa;
+opacity: 1;
+background-size: 8px 8px;
+background-image: repeating-linear-gradient(45deg, #feffa5 0, #feffa5 0.8px, #fafffa 0, #fafffa 50%);
+}
+
+.tablePokemon{
+  width: 100%;
+}
+
+button:disabled{
+  color: rgb(219, 219, 219);
+}
+
+.page-link{
+  color: black;
+}
+.darkMode .page-link{
+  background-color: black!important;
+  color: white!important;
+}
+
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.img-table{
+  height: 50px;
+}
+
+.table-types span{
+  height: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left:5px;
+}
+
+.table-types .normal{  background: #cfcebc}
+.table-types .fighting{  background: #addf25}
+.table-types .flying{  background: #104696;color:white}
+.table-types .poison{  background: #0b7a0b;color:white}
+.table-types .ground{  background: #0fe60f}
+.table-types .rock{  background: #4e4040;color:white}
+.table-types .bug{  background: #8fe78f}
+.table-types .ghost{  background: #a769ee}
+.table-types .fire{  background: #fafffa}
+.table-types .water{  background: #a1dae4}
+.table-types .grass{  background: #a4e7a4}
+.table-types .electric{  background: #ffef13}
+.table-types .psychic{  background: #eb2aaa;color:white}
+.table-types .ice{  background: #3ec1d8}
+.table-types .dragon{  background: #d62912;color:white}
+.table-types .dark{  background: #777777}
+.table-types .fairy{  background: #e073ce}
+.table-types .unknown{  background: #f79c85}
+.table-types .shadow{  background: #3d2b68}
+.table-types .fire{  background: #ff0000;color:white}
+.table-types .steel{  background: #4b4b4b;color:white}
+
+
+

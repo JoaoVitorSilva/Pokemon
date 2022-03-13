@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { MemorygameComponent } from './memorygame/memorygame.component';
+import { MemorygameModule } from './memorygame/memorygame.module';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
@@ -23,6 +25,11 @@ const routes: Routes = [
     path: 'types',
     loadChildren: () => import('./types/types.module').then((m) => m.TypesModule),
   },
+  {
+    path:'memorygame',
+    component: MemorygameComponent,
+    loadChildren: () => import('./memorygame/memorygame.module').then((m) => m.MemorygameModule),
+  }
 ];
 
 @NgModule({

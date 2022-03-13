@@ -19,6 +19,7 @@
       stats: any;
       types: any;
       weight: number;
+      memorycard?: boolean;
   }
 
 

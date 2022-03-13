@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'Pokemon';
-  cssDarkMode = false;
+  cssDarkMode = true;
 
   changeMode(){
 

@@ -1,3 +1,4 @@
+import { MemorygameModule } from './memorygame/memorygame.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatToolbarModule,
     MatListModule,
     MatSlideToggleModule,
+    MemorygameModule
   ],
 
   providers: [],

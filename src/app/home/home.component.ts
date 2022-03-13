@@ -1,6 +1,5 @@
 import { FavoritesService } from './../favorites/favorites.service';
 import { FavoritesTypeService } from './../favorites/favorites-type.service';
-import { PokemonService } from './../pokemon/pokemon.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

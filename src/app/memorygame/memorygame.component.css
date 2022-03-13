@@ -1,0 +1,47 @@
+
+
+.card-memory{
+  border-radius:5px;
+  text-align: center;
+  display: inline-block;
+  height: 186px;
+  cursor: pointer;
+  padding: 0px;
+  overflow: hidden;
+  padding-right: 10px!important;
+}
+
+.card-memory img{
+  width:140px;
+  margin:auto;
+}
+
+.card-memory .size100 .card{
+  background:url('/assets/images/card-bg.jpg');
+  height: 186px;
+}
+
+
+
+.card-memory .size100 .show.normal{  background: #cfcebc}
+.card-memory .size100 .show.fighting{  background: #addf25}
+.card-memory .size100 .show.flying{  background: #104696;color:white}
+.card-memory .size100 .show.poison{  background: #0b7a0b;color:white}
+.card-memory .size100 .show.ground{  background: #0fe60f}
+.card-memory .size100 .show.rock{  background: #4e4040;color:white}
+.card-memory .size100 .show.bug{  background: #8fe78f}
+.card-memory .size100 .show.ghost{  background: #a769ee}
+.card-memory .size100 .show.fire{  background: #fafffa}
+.card-memory .size100 .show.water{  background: #a1dae4}
+.card-memory .size100 .show.grass{  background: #a4e7a4}
+.card-memory .size100 .show.electric{  background: #ffef13}
+.card-memory .size100 .show.psychic{  background: #eb2aaa;color:white}
+.card-memory .size100 .show.ice{  background: #3ec1d8}
+.card-memory .size100 .show.dragon{  background: #d62912;color:white}
+.card-memory .size100 .show.dark{  background: #777777}
+.card-memory .size100 .show.fairy{  background: #e073ce}
+.card-memory .size100 .show.unknown{  background: #f79c85}
+.card-memory .size100 .show.shadow{  background: #3d2b68}
+.card-memory .size100 .show.fire{  background: #ff0000;color:white}
+.card-memory .size100 .show.steel{  background: #4b4b4b;color:white}
+

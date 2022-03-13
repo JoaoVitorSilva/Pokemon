@@ -112,7 +112,14 @@ color: white!important;
   margin-left: 10px
 }
 
+.darkMode .mat-drawer,.darkMode .nav-link{
+  background-color: #252525 !important;
+  color: white !important;
+}
 
+.darkMode .mat-divider{
+  border-top-color: white!important;
+}
 
 
 

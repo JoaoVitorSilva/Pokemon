@@ -1,0 +1,35 @@
+<h2 class="title text-center">Memory Game</h2>
+
+<button mat-raised-button (click)="starGame()" class="page-link startGame">
+  Start game
+</button>
+
+<div class="row memory-game-container d-flex justify-content-center">
+  <div
+    class="col-md-2 mt-2 ml-2 card-memory"
+    *ngFor="let item of pokemons; let index = index"
+    (click)="selectCard(index)"
+  >
+    <div *ngIf="item.is_default; else bgCard" class="size100">
+      <div class="show card {{ item.types[0].type.name }}">
+        <h3>{{ item.name }}</h3>
+        <img
+          mat-card-image
+          [src]="item?.sprites?.other['official-artwork'].front_default"
+          [alt]="item.name"
+          width="100%"
+        />
+      </div>
+    </div>
+
+    <ng-template #bgCard>
+      <div class="size100">
+        <div class="card">
+          <p class="text-hidden align-middle"></p>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <h2 *ngIf="hitsCards == qtdCards" class="title text-center">Congratulations,you win!</h2>
+</div>
